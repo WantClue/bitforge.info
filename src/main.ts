@@ -88,26 +88,44 @@ const specsModal = document.getElementById('specs-modal')
 const modalClose = document.getElementById('modal-close')
 
 if (specsLink && specsModal && modalClose) {
+  const openModal = () => {
+    specsModal.classList.add('active')
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeModal = () => {
+    specsModal.classList.remove('active')
+    document.body.style.overflow = ''
+  }
+
   specsLink.addEventListener('click', (e) => {
     e.preventDefault()
-    specsModal.classList.add('active')
+    openModal()
   })
 
-  modalClose.addEventListener('click', () => {
-    specsModal.classList.remove('active')
+  modalClose.addEventListener('click', (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    closeModal()
+  })
+
+  modalClose.addEventListener('touchend', (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    closeModal()
   })
 
   // Close modal when clicking outside
   specsModal.addEventListener('click', (e) => {
     if (e.target === specsModal) {
-      specsModal.classList.remove('active')
+      closeModal()
     }
   })
 
   // Close modal with Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && specsModal.classList.contains('active')) {
-      specsModal.classList.remove('active')
+      closeModal()
     }
   })
 }
