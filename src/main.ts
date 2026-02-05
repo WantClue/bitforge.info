@@ -82,7 +82,15 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight)
 })
 
-// Modal functionality
+const manualLink = document.getElementById('manual')
+
+if (manualLink) {
+  manualLink.addEventListener('click', (e) => {
+    e.preventDefault()
+    window.open('/SINGLE-PAGE-Nanoforge-manual-100mmX165mm.pdf', '_blank')
+  })
+}
+
 const specsLink = document.getElementById('specs-link')
 const specsModal = document.getElementById('specs-modal')
 const modalClose = document.getElementById('modal-close')
