@@ -82,6 +82,18 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight)
 })
 
+const resellersDropdown = document.getElementById('resellers-dropdown')
+if (resellersDropdown) {
+  const trigger = resellersDropdown.querySelector('.dropdown-trigger')
+  trigger?.addEventListener('click', (e) => {
+    e.stopPropagation()
+    resellersDropdown.classList.toggle('open')
+  })
+  document.addEventListener('click', () => {
+    resellersDropdown.classList.remove('open')
+  })
+}
+
 const manualLink = document.getElementById('manual')
 
 if (manualLink) {
