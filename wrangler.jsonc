@@ -1,5 +1,5 @@
 {
-  "name": "bitforge-info",
+  "name": "bitforgeinfo",
   "compatibility_date": "2025-12-16",
   "assets": {
     "directory": "./dist"
